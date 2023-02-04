@@ -1,0 +1,36 @@
+function FirstEmail() {
+  var sheet = SpreadsheetApp.getActiveSpreadsheet().getSheetByName("Form Responses 1");
+  var LastRow = sheet.getLastRow();
+
+  for(var i = 2; i < LastRow+1;i++){
+      var email = sheet.getRange(i,2).getValue();
+      var name = sheet.getRange(i,3).getValue();
+      var phone = sheet.getRange(i,4).getValue();
+      var Tid = sheet.getRange(i,5).getValue();
+      var flag = sheet.getRange(i,7).getValue();
+      if (flag != "yes"){
+        sheet.getRange(i,7).setValue("yes");
+        var subject = "Update on Varsity Jacket (1/2)";
+        message = "This is an automated message\n"+"Submitted details are\n"+ "\nEmail:\t"+ email+ "\nName:\t"+ name+ "\nPhone:\t"+ phone+ "\nTransaction ID:\t"+ Tid + "\nWe will check if we recived the the money and send a confirmation mail" + "\n\nRegards\nNilay\n";
+        MailApp.sendEmail(email, subject, message);
+      }
+  }   
+}
+
+function PaymentConfirmation(){
+  var sheet = SpreadsheetApp.getActiveSpreadsheet().getSheetByName("Form Responses 1");
+  var LastRow = sheet.getLastRow();
+
+  for(var i = 2; i < LastRow+1;i++){
+      var email = sheet.getRange(i,2).getValue();
+      var name = sheet.getRange(i,3).getValue();
+      var phone = sheet.getRange(i,4).getValue();
+      var Tid = sheet.getRange(i,5).getValue();
+      var flag = sheet.getRange(i,8).getValue();
+      if (flag == "yes"){
+        var subject = "Update on Varsity Jacket(2/2)";
+        message = "This is an automated message\n"+"\nHi there We've confirmed that we've got your money" + "\n\nRegards\nNilay\n\n";
+        MailApp.sendEmail(email, subject, message);
+      }
+  }
+}
