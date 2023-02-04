@@ -11,7 +11,7 @@ function FirstEmail() {
       if (emailFlag != 1){
         sheet.getRange(i,7).setValue(1);
         var subject = "Update on Varsity Jacket (1/2)";
-        message = "This is an automated message\n"+"Submitted details are\n"+ "\nEmail:\t"+ email+ "\nName:\t"+ name+ "\nPhone:\t"+ phone+ "\nTransaction ID:\t"+ Tid + "\nWe will check if we recived the the money and send a confirmation mail" + "\n\nRegards\nNilay\n";
+        message = "This is an automated message\n"+"Submitted details are\n"+ "\nEmail:\t"+ email+ "\nName:\t"+ name+ "\nPhone:\t"+ phone+ "\nTransaction ID:\t"+ Tid + "\nWe will check if we recived the the money and send a confirmation mail" + "\n\nRegards\nNilay\n\n\n\nAutomation code can be found here https://github.com/n-square28/Varsity-Jacket-payment-form";
         MailApp.sendEmail(email, subject, message);
       }
   }   
@@ -28,7 +28,7 @@ function PaymentConfirmation(){
       if (paymentFlag == "yes" && paymentEmail != 1){
         sheet.getRange(i,8).setValue(1);
         var subject = "Update on Varsity Jacket(2/2)";
-        message = "This is an automated message\n"+"\nHi there We've confirmed that we've got your money" + "\n\nRegards\nNilay\n\n";
+        message = "This is an automated message\n"+"\nHi there. \nWe've has confirmed that we got your money" + "\n\nRegards\nNilay\n\n\nAutomation code can be found here https://github.com/n-square28/Varsity-Jacket-payment-form";
         MailApp.sendEmail(email, subject, message);
       }
   }
