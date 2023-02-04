@@ -23,9 +23,6 @@ function PaymentConfirmation(){
 
   for(var i = 2; i < LastRow+1;i++){
       var email = sheet.getRange(i,2).getValue();
-      var name = sheet.getRange(i,3).getValue();
-      var phone = sheet.getRange(i,4).getValue();
-      var Tid = sheet.getRange(i,5).getValue();
       var flag = sheet.getRange(i,8).getValue();
       if (flag == "yes"){
         var subject = "Update on Varsity Jacket(2/2)";
